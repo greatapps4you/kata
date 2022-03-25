@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="warn">
     <Properties>
-        <Property name="basePath">${sys:user.home}/.codility</Property>
+        <Property name="basePath">${sys:user.home}/.kata</Property>
     </Properties>
 
     <Appenders>
@@ -32,7 +32,7 @@
     </Appenders>
     <Loggers>
         <Root level="debug" additivity="false">
-            <appender-ref ref="fileLogger" />
+            <appender-ref ref="console" />
         </Root>
     </Loggers>
 </Configuration>

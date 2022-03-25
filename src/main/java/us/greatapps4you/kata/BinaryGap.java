@@ -12,8 +12,8 @@ public class BinaryGap {
 
     private static final Logger logger = LogManager.getLogger(BinaryGap.class.getName());
 
-
-    private final Pattern BINARY_GAP_PATTERN = Pattern.compile("1([0]{1,})1");
+    // https://www.regular-expressions.info/lookaround.html
+    private final Pattern BINARY_GAP_PATTERN = Pattern.compile("(?<=1)(0*?)(?=1)");
 
     public int getLongestBinaryGapLenght(long input) {
         validateInput(input);
@@ -55,7 +55,7 @@ public class BinaryGap {
         Matcher binaryGapMatcher = BINARY_GAP_PATTERN.matcher(binary);
         List<String> found = new ArrayList<>();
         while (binaryGapMatcher.find()) {
-            found.add(binaryGapMatcher.group(1));
+            found.add(binaryGapMatcher.group());
         }
         return found;
     }
